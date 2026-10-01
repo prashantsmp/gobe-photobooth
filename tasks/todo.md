@@ -27,9 +27,9 @@ the current one passes there. Commit at the end of every phase.
       with a transparent window) + `public/frames/frames.json`.
 - [x] `index.html` fixed at 1080×1920, `style.css`, empty `app.js` that loads config → event → frames.
 - [x] README stub: how to add a frame, switch event, remove from robot.
-- [ ] Publish `/public` to the chosen static host. _(workflow written; waiting on GitHub repo)_
+- [x] Publish `/public` to the chosen static host → https://prashantsmp.github.io/gobe-photobooth/
 
-**Check:** page loads on the robot over HTTPS, no console errors.
+**Check:** page loads on the robot over HTTPS, no console errors. _(desktop Chrome: passed. Robot: pending.)_
 
 ## Phase 1 — First milestone: capture → one frame → on screen (robot)
 
