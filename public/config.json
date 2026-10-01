@@ -1,0 +1,15 @@
+{
+  "activeEvent": "default",
+  "uploadUrl": "https://<host>/upload",
+  "camera": {
+    "labelMatch": "2bc5:0511",
+    "width": 1280,
+    "height": 720,
+    "controls": {}
+  },
+  "countdownSeconds": 3,
+  "idleTimeoutSeconds": 60,
+  "shareScreenSeconds": 60,
+  "soundVolume": 0.6,
+  "retentionHours": 24
+}

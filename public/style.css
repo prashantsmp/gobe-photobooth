@@ -1,0 +1,56 @@
+/* Fixed 1080 x 1920 portrait layout for the robot screen. px only — no dvh/svh (Chromium 91). */
+
+:root {
+  --bg: #faf9f7;
+  --text: #23221f;
+  --muted: #6b6862;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  width: 1080px;
+  height: 1920px;
+  overflow: hidden;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+#app {
+  position: relative;
+  width: 1080px;
+  height: 1920px;
+}
+
+.screen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1080px;
+  height: 1920px;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 80px;
+  text-align: center;
+}
+
+.screen.is-active { display: flex; }
+
+.title {
+  margin: 0 0 40px;
+  font-size: 96px;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.status {
+  margin: 0;
+  font-size: 36px;
+  color: var(--muted);
+}
