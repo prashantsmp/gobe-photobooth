@@ -322,14 +322,18 @@ If you think one of these is needed, write down why and ask. Do not build it.
 
 ```
 /public     # the published folder — this is what the static host serves
-  index.html  app.js  style.css  config.json
+  index.html  style.css  config.json
+  app.js    # screen flow (ES module entry)
+  js/       # one job per file: setup.js (load config/event/frames), camera.js, compose.js
   vendor/qrcode.min.js
   frames/   (see §4)
   events/   (see §4)
 /server     # not published; deployed separately
   server.js
+/tests      # node --test, for the parts that don't need a browser (e.g. crop maths)
 /tasks
   todo.md  lessons.md
+package.json  # no dependencies; just `npm test` and `npm run serve`
 CLAUDE.md
 README.md   # includes: how to add a frame, how to switch event, how to remove from robot
 ```

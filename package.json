@@ -1,0 +1,9 @@
+{
+  "name": "gobe-photobooth",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test tests/*.test.js",
+    "serve": "python3 -m http.server 3100 --directory public"
+  }
+}

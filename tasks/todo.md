@@ -33,18 +33,20 @@ the current one passes there. Commit at the end of every phase.
 
 ## Phase 1 — First milestone: capture → one frame → on screen (robot)
 
-- [ ] ATTRACT screen (camera off, privacy line from §10).
-- [ ] Camera start: pick device by label `2bc5:0511`, fall back to the first camera with a warning;
+- [x] ATTRACT screen (camera off, privacy line from §10).
+- [x] Camera start: pick device by label `2bc5:0511`, fall back to the first camera with a warning;
       request `ideal` size, log the real size; apply `camera.controls` in try/catch.
-- [ ] PREVIEW (mirrored) with "Look here ↑" cue at the top.
-- [ ] COUNTDOWN at the top of the screen, `countdownSeconds` from config.
-- [ ] CAPTURE: draw to a raw canvas at real resolution, mirrored; stop the camera straight after.
-- [ ] Compose: cover-fit into `window` (centre horizontally, 40% from top) → frame PNG on top → JPEG 0.9.
+- [x] PREVIEW (mirrored) with "Look here ↑" cue at the top.
+- [x] COUNTDOWN at the top of the screen, `countdownSeconds` from config.
+- [x] CAPTURE: draw to a raw canvas at real resolution, mirrored; stop the camera straight after.
+- [x] Compose: cover-fit into `window` (centre horizontally, 40% from top) → frame PNG on top → JPEG 0.9.
       Log compose + encode time.
-- [ ] Show the composed photo with "Retake" (restarts camera) and "Done" (back to ATTRACT).
+- [x] Show the composed photo with "Retake" (restarts camera) and "Done" (back to ATTRACT).
 
 **Check on robot:** front camera chosen, real resolution logged, photo mirrored like the preview,
 compose + encode < 1 s, face visible.
+_(Laptop, fake 1280×720 camera: flow, label match, mirroring, retake/done, clean-up all pass;
+compose 338 ms. Robot: pending.)_
 
 ## Phase 2 — Robustness
 

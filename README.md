@@ -6,10 +6,12 @@ and download it by scanning a QR code. See `CLAUDE.md` for the full spec.
 ## Run it locally
 
 ```
-python3 -m http.server 3100 --directory public
+npm run serve     # python3 -m http.server 3100 --directory public
+npm test          # node --test, no dependencies to install
 ```
 
 Open http://localhost:3100. Localhost counts as a secure page, so the camera works without HTTPS.
+Open the browser console to see the camera size actually delivered and how long composing took.
 
 ## Publish
 

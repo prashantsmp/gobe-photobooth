@@ -1,9 +1,14 @@
-/* Fixed 1080 x 1920 portrait layout for the robot screen. px only — no dvh/svh (Chromium 91). */
+/* Fixed 1080 x 1920 portrait layout for the robot screen. px only — no dvh/svh (Chromium 91).
+   Buttons stay in the y = 700–1500 band so children and wheelchair users can reach them.
+   Countdown and "Look here" sit at the top, next to the camera above the screen. */
 
 :root {
   --bg: #faf9f7;
   --text: #23221f;
   --muted: #6b6862;
+  --primary: #0f4024;
+  --on-primary: #fff;
+  --border: #d9d6cf;
 }
 
 * { box-sizing: border-box; }
@@ -20,37 +25,118 @@ html, body {
   -webkit-user-select: none;
 }
 
-#app {
-  position: relative;
-  width: 1080px;
-  height: 1920px;
-}
-
-.screen {
+#app, .screen, #preview {
   position: absolute;
   top: 0;
   left: 0;
   width: 1080px;
   height: 1920px;
-  display: none;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 0 80px;
-  text-align: center;
 }
 
-.screen.is-active { display: flex; }
+.screen { display: none; }
+.screen.is-active { display: block; }
+
+/* ATTRACT */
+#screen-attract { text-align: center; padding: 0 80px; }
 
 .title {
-  margin: 0 0 40px;
+  margin: 640px 0 48px;
   font-size: 96px;
   font-weight: 700;
   line-height: 1.1;
 }
 
-.status {
+.tap-hint { margin: 0; font-size: 48px; }
+
+.message { margin: 48px 0 0; font-size: 36px; color: var(--muted); min-height: 44px; }
+
+.privacy {
+  position: absolute;
+  left: 80px;
+  right: 80px;
+  bottom: 120px;
   margin: 0;
-  font-size: 36px;
+  font-size: 28px;
   color: var(--muted);
+}
+
+/* PREVIEW + COUNTDOWN (left/top/size of the video are set from the frame window in app.js) */
+#preview-video {
+  position: absolute;
+  object-fit: cover;
+  transform: scaleX(-1);
+  background: var(--text);
+}
+
+#preview-frame {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1080px;
+  height: 1920px;
+  pointer-events: none;
+}
+
+#preview-frame:not([src]) { display: none; }
+
+.cue, .countdown {
+  position: absolute;
+  top: 24px;
+  left: 0;
+  width: 1080px;
+  margin: 0;
+  text-align: center;
+  color: var(--text);
+}
+
+.cue { font-size: 64px; font-weight: 700; }
+
+.countdown { display: none; font-size: 160px; font-weight: 700; line-height: 1; }
+
+#preview.is-counting .countdown { display: block; }
+#preview.is-counting .cue,
+#preview.is-counting .button--take { display: none; }
+
+/* RESULT */
+.result-photo {
+  position: absolute;
+  top: 100px;
+  left: 216px;
+  width: 648px;
+  height: 1152px;
+  border: 1px solid var(--border);
+}
+
+.result-actions {
+  position: absolute;
+  top: 1320px;
+  left: 0;
+  width: 1080px;
+  display: flex;
+  justify-content: center;
+}
+
+.result-actions .button + .button { margin-left: 40px; }
+
+/* Buttons */
+.button {
+  min-width: 360px;
+  height: 140px;
+  padding: 0 56px;
+  border-radius: 70px;
+  font: inherit;
+  font-size: 48px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.button--primary { background: var(--primary); color: var(--on-primary); border: 0; }
+.button--secondary { background: var(--bg); color: var(--text); border: 2px solid var(--text); }
+
+.button--take {
+  position: absolute;
+  top: 1340px;
+  left: 50%;
+  margin-left: -260px;
+  width: 520px;
 }

@@ -10,9 +10,29 @@
   <div id="app">
     <section id="screen-attract" class="screen is-active">
       <h1 id="event-title" class="title">Loading…</h1>
-      <p id="status" class="status"></p>
+      <p class="tap-hint">Tap anywhere to take a photo</p>
+      <p id="attract-message" class="message"></p>
+      <p id="privacy" class="privacy"></p>
+    </section>
+
+    <section id="screen-preview" class="screen">
+      <div id="preview">
+        <video id="preview-video" muted playsinline></video>
+        <img id="preview-frame" alt="">
+        <p class="cue">Look here ↑</p>
+        <p id="countdown" class="countdown"></p>
+        <button id="btn-take" class="button button--primary button--take" type="button">Take photo</button>
+      </div>
+    </section>
+
+    <section id="screen-result" class="screen">
+      <img id="result-photo" class="result-photo" alt="Your photo">
+      <div class="result-actions">
+        <button id="btn-retake" class="button button--secondary" type="button">Retake</button>
+        <button id="btn-done" class="button button--primary" type="button">Done</button>
+      </div>
     </section>
   </div>
-  <script src="app.js"></script>
+  <script type="module" src="app.js"></script>
 </body>
 </html>
